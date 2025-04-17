@@ -62,11 +62,16 @@ body {
   padding: 15px 25px;
   border: none;
   border-radius: 30px;
-  background: linear-gradient(to right, #9356dc, #ff79da);
+  background: linear-gradient(193.33deg, #ff79da 0%, #9356dc 100%);
   color: #fff;
   font-weight: bold;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
   text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero__btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 /* STEPS */
@@ -127,6 +132,7 @@ body {
 }
 
 .restaurant-card {
+  position: relative;
   background-color: #fff;
   border-radius: 20px;
   overflow: hidden;
@@ -142,18 +148,94 @@ body {
 }
 
 .restaurant-card__content {
-  padding: 15px;
+  padding: 15px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
 .restaurant-card__title {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 700;
+  color: #000000;
   margin-bottom: 5px;
+}
+.restaurant-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .restaurant-card__subtitle {
+  font-size: 17px;
+  font-weight: 300;
+  color: #000000;
+}
+.restaurant-card__image-wrapper {
+  position: relative;
+}
+.restaurant-card__badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #99e2d0;
+  color: #008766;
   font-size: 14px;
-  color: #777;
+  font-weight: 500;
+  padding: 7px 10px;
+  border-radius: 2px;
+}
+.restaurant-card__like {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+}
+
+.heart-checkbox {
+  display: none;
+}
+
+.heart-label {
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 300;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.heart-label .fa-heart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.heart-label .fa-regular {
+  opacity: 1;
+  color: #000;
+  z-index: 2;
+}
+
+.heart-label .fa-solid {
+  opacity: 0;
+  background: linear-gradient(to top, #9356dc, #ff79da);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: scale(0.9);
+  z-index: 1;
+}
+
+.heart-checkbox:checked + .heart-label .fa-regular {
+  opacity: 0;
+}
+
+.heart-checkbox:checked + .heart-label .fa-solid {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 /* FOOTER */
